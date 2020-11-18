@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Control de Inventario</h1>
+    </center>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <form id="form_1">
+                    <h3>Agregar productos</h3>
+                    <input type="number" id="codigoPro" placeholder="Codigo producto"/>
+                    <p></p>
+                    <input type="text" id="nombrePro" placeholder="Nombre producto" />
+                    <p></p>
+                    <textarea id="descPro" cols="23" rows="3" placeholder="Descripcion Producto"></textarea>
+                    <p></p>
+                    <input type="number" id="costoPro" placeholder="Costo Porducto" />
+                    <p></p>
+                    <input type="number" id="cantPro" placeholder="Cantidad Productos"/>
+                    <p></p>
+                    <input type="button" value="Agregar producto" id="btAgregar" />
+                </form> 
+            </div>
+
+            <div class="col-3">
+                <form id="form_2">
+                    <h3>Borrar productos</h3>
+                    <input type="number" id="borrarPro" placeholder="Codigo Producto"/>
+                    <input type="button" value="Borrar" id="btBorrar" />
+                    <p></p>
+                    <input type="button" value="Borrar Primero" id="btBorrarPri"/>
+                </form>
+                <form id="form_3">
+                    <h3>Buscar productos</h3>
+                    <input type="number" id="buscarPro" placeholder="Codigo Producto"/>
+                    <input type="button" value="Buscar" id="btBuscar" />
+                </form>
+                <h3>Listar productos</h3>
+                <input type="button" value="Listar" id="btListar" />
+                <p></p>
+                <input type="button" value="Listar (inverso)" id="btListarIn" />
+            </div>
+
+            <div class="col-6">
+              <h3>Inventario</h3>
+              <ul id="listado" class="list-group"></ul>
+            </div>
+
+        </div>
+    </div>
+
+<!-- CSS -->
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+/>
+
+<!-- JS -->
+<script src="main.js"></script>
+</body>
+</html>
