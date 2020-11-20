@@ -56,6 +56,14 @@ class Inventario{
             this.inicio = nuevo;
             this.fin = nuevo;
             return (nuevo, this.listaP());
+        }else
+        if(nuevo.codigo < this.inicio.codigo){
+            let aux = this.inicio;
+            this.inicio = nuevo;
+            this.inicio.siguiente = aux;
+            aux.anterior = this.inicio;
+            this.fin = aux;
+            this.listaP()
         }else{
             let aux = this.inicio;
             let done = false;
@@ -64,6 +72,7 @@ class Inventario{
                     nuevo.siguiente = aux;
                     nuevo.anterior = aux.anterior;
                     aux.anterior = nuevo;
+                    nuevo.anterior.siguiente = nuevo;
                     if(aux.codigo === this.inicio.codigo){
                         nuevo.anterior = nuevo;
                         this.inicio = nuevo;
@@ -102,38 +111,21 @@ class Inventario{
     borrarP(codigo){
         let aux = this.inicio;
         let temp = null;
-
-        while(aux !== null){
-            if(aux.codigo === codigo){
+        while(aux != null){
+            if(aux.codigo == codigo){
                 if(!temp){
-                    return this.borrarInicio();
-                } else
-                if(!aux.siguiente){
-                    if(!this.fin){
-                        return null;
-                    }
-                    const aux2 = this.fin.codigo;
-                    if(this.inicio === this.fin){
-                        this.inicio = null;
-                        this.fin = null;
-                    }else{
-                        this.fin = this.fin.anterior;
-                        this.fin.siguiente = null;
-                    }
-                    this.tamaño--;
-                    return (aux2, this.listaP());
+                    this.inicio = aux.siguiente;
                 }else{
                     temp.siguiente = aux.siguiente;
-                    aux.siguiente.anterior = temp;
                 }
-                this.tamaño--;
-                return (this.listaP(), aux.codigo);
+                this.else--;
+                return (aux.codigo, this.listaP());
             }
             temp = aux;
-            aux = aux.siguiente;
+            aux = aux.siguiente
         }
-        return null;    
-    }
+        return null;
+    } 
 
     buscarP(codigo){
         lista.innerHTML = "";
@@ -182,7 +174,6 @@ btAgregar.addEventListener("click", () => {
 btBorrar.addEventListener("click", () => {
   inventario.borrarP(borrarPro.value);
   document.getElementById("form_2").reset();
-  
 });
 
 //Borrar Inicio
